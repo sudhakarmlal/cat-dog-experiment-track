@@ -1,0 +1,11 @@
+# Aim logger configuration
+# https://aimstack.io/
+
+aim:
+  _target_: aim.pytorch_lightning.AimLogger
+  experiment: "${experiment.experiment_name}"
+  train_metric_prefix: "train"
+  test_metric_prefix: "test"
+  val_metric_prefix: "val"
+  system_tracking_interval: 10
+  log_system_params: True 
