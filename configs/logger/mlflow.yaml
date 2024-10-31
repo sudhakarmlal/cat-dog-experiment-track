@@ -1,0 +1,20 @@
+mlflow:
+  _target_: lightning.pytorch.loggers.MLFlowLogger
+  
+  # Experiment Configuration
+  experiment_name: ${experiment.experiment_name}
+  run_name: null  # Will be set by experiment config
+  
+  # Storage Configuration
+  tracking_uri: file:${paths.log_dir}/mlruns
+  save_dir: ${paths.log_dir}/mlruns
+  artifact_location: null
+  
+  # Logging Configuration
+  log_model: "all"  # Log checkpoints during training
+  prefix: ""  # No prefix for metric keys
+  tags: null  # Will be set by experiment config
+    
+  # Run Configuration
+  run_id: null  # Auto-generated if not specified
+  synchronous: true  # Block execution for logging calls (requires mlflow >= 2.8.0)

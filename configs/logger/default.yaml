@@ -1,6 +1,4 @@
-# train with many loggers at once
-
 defaults:
   - csv
   - tensorboard
-  - aim
+  - mlflow

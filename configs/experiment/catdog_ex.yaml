@@ -41,5 +41,19 @@ callbacks:
     patience: 10
     mode: "max"
 
+#experiment:
+  #experiment_name: "catdog_classification"
+
 experiment:
   experiment_name: "catdog_classification"
+  tags:
+    task: "image_classification"
+    dataset: "cats_and_dogs"
+    model: ${model.base_model}
+    
+logger:
+  mlflow:
+    _target_: lightning.pytorch.loggers.MLFlowLogger
+    experiment_name: ${experiment.experiment_name}
+    run_name: "run_${now:%Y-%m-%d_%H-%M-%S}"
+    tags: ${experiment.tags}  
